@@ -1,0 +1,28 @@
+<polymer-element name="markdown-view" attributes="text">
+
+	<template>
+    <div id="view"></div>
+	</template>
+
+	<script>
+    Polymer('markdown-view', {
+
+      text: "",
+
+      created: function() {
+        this.updateView();
+      },
+
+      updateView: function() {
+        var markdownContent = markdown.toHTML(this.text);
+        this.$.view.innerHTML = markdownContent;
+      },
+
+      textChanged: function() {
+        this.updateView();
+      }
+
+    });
+  </script>
+
+</polymer-element>

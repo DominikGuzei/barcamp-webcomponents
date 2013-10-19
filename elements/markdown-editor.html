@@ -1,0 +1,22 @@
+<link rel="import" href="markdown-view.html">
+
+<polymer-element name="markdown-editor" attributes="content">
+
+	<template>
+    <textarea id="editor" on-keyup="handleEditorKeyUp"></textarea>
+    <markdown-view text="{{content}}"></markdown-view>
+	</template>
+
+	<script>
+    Polymer('markdown-editor', {
+
+      content: "Das ist Markdown",
+
+      handleEditorKeyUp: function() {
+        this.content = this.$.editor.value;
+      }
+
+    });
+  </script>
+
+</polymer-element>
